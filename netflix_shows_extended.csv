@@ -1,0 +1,91 @@
+show_id,title,type,director,cast_lead,country,language,date_added,release_year,rating,duration_mins,seasons,genre,netflix_original,imdb_score,awards_won,budget_usd_millions,popularity_score
+1,Stranger Things,TV Show,,Millie Bobby Brown,United States,English,2016-07-15,2016,TV-14,,4,Sci-Fi & Fantasy,Yes,8.7,12,30,98
+2,Money Heist,TV Show,,Ursula Corbero,Spain,Spanish,2017-05-02,2017,TV-MA,,5,Crime,Yes,8.2,8,20,95
+3,The Crown,TV Show,,Claire Foy,United Kingdom,English,2016-11-04,2016,TV-MA,,6,Drama,Yes,8.6,21,13,88
+4,Bird Box,Movie,Susanne Bier,Sandra Bullock,United States,English,2018-12-21,2018,R,124,,Thriller,Yes,6.6,1,20,80
+5,The Witcher,TV Show,,Henry Cavill,United States,English,2019-12-20,2019,TV-MA,,3,Fantasy,Yes,8.0,3,10,90
+6,Roma,Movie,Alfonso Cuaron,Yalitza Aparicio,Mexico,Spanish,2018-12-14,2018,R,135,,Drama,Yes,7.7,10,15,70
+7,Narcos,TV Show,,Wagner Moura,Colombia,Spanish,2015-08-28,2015,TV-MA,,3,Crime,Yes,8.8,4,7,86
+8,Extraction,Movie,Sam Hargrave,Chris Hemsworth,United States,English,2020-04-24,2020,R,117,,Action,Yes,6.8,0,65,84
+9,Sacred Games,TV Show,,Nawazuddin Siddiqui,India,Hindi,2018-07-06,2018,TV-MA,,2,Crime,Yes,8.5,2,4,79
+10,Delhi Belly,Movie,Abhinay Deo,Imran Khan,India,Hindi,2019-03-15,2011,R,100,,Comedy,No,7.6,0,3,60
+11,Ozark,TV Show,,Jason Bateman,United States,English,2017-07-21,2017,TV-MA,,4,Crime,Yes,8.4,4,4,89
+12,The Irishman,Movie,Martin Scorsese,Robert De Niro,United States,English,2019-11-27,2019,R,209,,Drama,Yes,7.8,3,160,82
+13,Lupin,TV Show,,Omar Sy,France,French,2021-01-08,2021,TV-MA,,2,Crime,Yes,7.5,1,6,83
+14,Dark,TV Show,,Louis Hofmann,Germany,German,2017-12-01,2017,TV-MA,,3,Sci-Fi & Fantasy,Yes,8.8,2,5,91
+15,Kaguya-sama: Love Is War,TV Show,,,Japan,Japanese,2020-01-01,2019,TV-14,,3,Anime,No,8.4,1,2,68
+16,Jaane Bhi Do Yaaro,Movie,Kundan Shah,Naseeruddin Shah,India,Hindi,2020-06-10,1983,PG,120,,Comedy,No,8.2,0,1,55
+17,The Umbrella Academy,TV Show,,Elliot Page,United States,English,2019-02-15,2019,TV-14,,3,Sci-Fi & Fantasy,Yes,7.9,1,7,85
+18,Marriage Story,Movie,Noah Baumbach,Adam Driver,United States,English,2019-12-06,2019,R,137,,Drama,Yes,7.9,6,18,73
+19,Squid Game,TV Show,,Lee Jung-jae,South Korea,Korean,2021-09-17,2021,TV-MA,,2,Thriller,Yes,8.0,6,21,99
+20,Elite,TV Show,,Itzan Escamilla,Spain,Spanish,2018-10-05,2018,TV-MA,,7,Drama,Yes,7.5,0,3,81
+21,The Half of It,Movie,Alice Wu,Leah Lewis,United States,English,2020-05-01,2020,PG-13,104,,Romance,Yes,7.4,0,4,58
+22,Kota Factory,TV Show,,Jitendra Kumar,India,Hindi,2019-04-16,2019,TV-14,,3,Drama,No,9.1,2,1,75
+23,Alice in Borderland,TV Show,,Kento Yamazaki,Japan,Japanese,2020-12-10,2020,TV-MA,,2,Sci-Fi & Fantasy,Yes,7.7,1,8,82
+24,The Platform,Movie,Galder Gaztelu-Urrutia,Ivan Massague,Spain,Spanish,2020-03-20,2019,R,94,,Thriller,Yes,7.0,3,3,76
+25,Emily in Paris,TV Show,,Lily Collins,United States,English,2020-10-02,2020,TV-MA,,3,Comedy,Yes,6.8,0,6,87
+26,Klaus,Movie,Sergio Pablos,Jason Schwartzman,Spain,English,2019-11-15,2019,PG,97,,Animation,Yes,8.2,1,40,72
+27,The Queen's Gambit,TV Show,,Anya Taylor-Joy,United States,English,2020-10-23,2020,TV-MA,,1,Drama,Yes,8.6,11,10,93
+28,Article 15,Movie,Anubhav Sinha,Ayushmann Khurrana,India,Hindi,2020-01-01,2019,R,130,,Crime,No,8.1,4,2,63
+29,Peaky Blinders,TV Show,,Cillian Murphy,United Kingdom,English,2019-08-01,2013,TV-MA,,6,Crime,No,8.8,3,3,88
+30,Pan's Labyrinth,Movie,Guillermo del Toro,Ivana Baquero,Mexico,Spanish,2019-06-01,2006,R,118,,Fantasy,No,8.2,3,19,65
+31,Wednesday,TV Show,,Jenna Ortega,United States,English,2022-11-23,2022,TV-14,,1,Comedy,Yes,8.1,4,90,97
+32,RRR,Movie,S.S. Rajamouli,N.T. Rama Rao Jr.,India,Telugu,2022-05-20,2022,PG-13,187,,Action,No,7.9,7,72,90
+33,Delhi Crime,TV Show,,Shefali Shah,India,Hindi,2019-03-22,2019,TV-MA,,2,Crime,Yes,8.5,2,2,66
+34,La Casa de Papel: Korea,TV Show,,Yoo Ji-tae,South Korea,Korean,2022-06-24,2022,TV-MA,,1,Crime,Yes,6.5,0,15,58
+35,Enola Holmes,Movie,Harry Bradbeer,Millie Bobby Brown,United States,English,2020-09-23,2020,PG-13,123,,Mystery,Yes,6.6,0,25,79
+36,1899,TV Show,,Emily Beecham,Germany,English,2022-11-17,2022,TV-MA,,1,Sci-Fi & Fantasy,Yes,7.6,0,45,71
+37,Jeetu Bhaiya Special,Movie,Raghav Subbu,Jitendra Kumar,India,Hindi,2021-07-01,2021,TV-14,88,,Comedy,No,6.9,0,1,45
+38,Special Ops,TV Show,,Kay Kay Menon,India,Hindi,2020-03-17,2020,TV-MA,,2,Action,No,8.5,1,3,69
+39,The Good Place,TV Show,,Kristen Bell,United States,English,2020-01-01,2016,TV-14,,4,Comedy,No,8.2,2,4,84
+40,Paatal Lok,TV Show,,Jaideep Ahlawat,India,Hindi,2020-05-15,2020,TV-MA,,2,Crime,No,8.0,1,2,67
+41,Breaking Bad,TV Show,,Bryan Cranston,United States,English,2013-05-08,2008,TV-MA,,5,Crime,No,9.5,16,3,96
+42,Mirzapur,TV Show,,Pankaj Tripathi,India,Hindi,2018-11-16,2018,TV-MA,,3,Crime,Yes,8.4,1,3,86
+43,Black Mirror,TV Show,,Various,United Kingdom,English,2016-10-21,2011,TV-MA,,6,Sci-Fi & Fantasy,Yes,8.7,10,2,89
+44,The Outsider,TV Show,,Ben Mendelsohn,United States,English,2020-01-13,2020,TV-MA,,1,Mystery,No,7.7,1,5,64
+45,Okja,Movie,Bong Joon Ho,Ahn Seo-hyun,South Korea,Korean,2017-06-28,2017,TV-14,120,,Adventure,Yes,7.3,2,50,61
+46,Little Things,TV Show,,Mithila Palkar,India,Hindi,2016-11-04,2016,TV-14,,4,Romance,Yes,8.5,0,1,62
+47,The Social Dilemma,Movie,Jeff Orlowski,,United States,English,2020-09-09,2020,PG-13,94,,Documentary,Yes,7.6,2,3,74
+48,Cobra Kai,TV Show,,Ralph Macchio,United States,English,2021-01-01,2018,TV-14,,5,Action,Yes,8.5,0,4,85
+49,Gullak,TV Show,,Jameel Khan,India,Hindi,2019-07-12,2019,TV-14,,3,Comedy,No,8.9,1,1,59
+50,Bandersnatch,Movie,David Slade,Fionn Whitehead,United Kingdom,English,2018-12-28,2018,TV-MA,90,,Sci-Fi & Fantasy,Yes,7.2,1,4,70
+51,You,TV Show,,Penn Badgley,United States,English,2018-12-26,2018,TV-MA,,4,Thriller,Yes,7.7,0,4,88
+52,Never Have I Ever,TV Show,,Maitreyi Ramakrishnan,United States,English,2020-04-27,2020,TV-14,,4,Comedy,Yes,7.9,1,3,80
+53,Sex Education,TV Show,,Asa Butterfield,United Kingdom,English,2019-01-11,2019,TV-MA,,4,Comedy,Yes,8.3,3,4,87
+54,Bridgerton,TV Show,,Phoebe Dynevor,United States,English,2020-12-25,2020,TV-MA,,3,Romance,Yes,7.3,2,7,94
+55,The Sandman,TV Show,,Tom Sturridge,United States,English,2022-08-05,2022,TV-MA,,2,Fantasy,Yes,7.9,2,15,86
+56,Locke and Key,TV Show,,Darby Stanchfield,United States,English,2020-02-07,2020,TV-14,,3,Fantasy,Yes,7.5,0,6,72
+57,Tiger King,TV Show,,Joe Exotic,United States,English,2020-03-20,2020,TV-MA,,2,Documentary,Yes,7.5,1,1,90
+58,Formula 1: Drive to Survive,TV Show,,,United Kingdom,English,2019-03-08,2019,TV-14,,6,Documentary,Yes,8.5,3,5,83
+59,House of Cards,TV Show,,Kevin Spacey,United States,English,2013-02-01,2013,TV-MA,,6,Drama,Yes,8.7,7,4,78
+60,Orange Is the New Black,TV Show,,Taylor Schilling,United States,English,2013-07-11,2013,TV-MA,,7,Comedy,Yes,8.1,4,3,81
+61,BoJack Horseman,TV Show,,,United States,English,2014-08-22,2014,TV-MA,,6,Animation,Yes,8.7,2,2,77
+62,Big Mouth,TV Show,,,United States,English,2017-09-29,2017,TV-MA,,6,Animation,Yes,7.9,0,2,73
+63,Love Death and Robots,TV Show,,,United States,English,2019-03-15,2019,TV-MA,,3,Anime,Yes,8.4,1,3,79
+64,The Haunting of Hill House,TV Show,,Michiel Huisman,United States,English,2018-10-12,2018,TV-MA,,1,Thriller,Yes,8.6,1,4,84
+65,Midnight Mass,TV Show,,Zach Gilford,United States,English,2021-09-24,2021,TV-MA,,1,Thriller,Yes,8.0,0,4,76
+66,Manifest,TV Show,,Melissa Roxburgh,United States,English,2021-06-10,2018,TV-14,,4,Sci-Fi & Fantasy,No,7.3,0,4,68
+67,Virgin River,TV Show,,Alexandra Breckenridge,United States,English,2019-12-06,2019,TV-14,,5,Romance,Yes,7.4,0,2,75
+68,Outer Banks,TV Show,,Chase Stokes,United States,English,2020-04-15,2020,TV-14,,3,Adventure,Yes,7.6,0,3,86
+69,Ginny and Georgia,TV Show,,Brianne Howey,United States,English,2021-02-24,2021,TV-14,,2,Drama,Yes,7.4,0,3,82
+70,Dirty John,TV Show,,Eric Bana,United States,English,2019-11-25,2018,TV-MA,,2,Crime,No,6.9,0,3,55
+71,Unbelievable,TV Show,,Toni Collette,United States,English,2019-09-13,2019,TV-MA,,1,Drama,Yes,8.5,3,2,70
+72,When They See Us,TV Show,,Jharrel Jerome,United States,English,2019-05-31,2019,TV-MA,,1,Drama,Yes,8.9,7,3,81
+73,Making a Murderer,TV Show,,Steven Avery,United States,English,2015-12-18,2015,TV-MA,,2,Documentary,Yes,8.6,1,2,74
+74,Russian Doll,TV Show,,Natasha Lyonne,United States,English,2019-02-01,2019,TV-MA,,2,Comedy,Yes,7.8,4,3,77
+75,Maniac,TV Show,,Emma Stone,United States,English,2018-09-21,2018,TV-MA,,1,Sci-Fi & Fantasy,Yes,7.4,1,5,66
+76,Dead to Me,TV Show,,Christina Applegate,United States,English,2019-05-03,2019,TV-MA,,3,Comedy,Yes,8.0,1,3,71
+77,Grace and Frankie,TV Show,,Jane Fonda,United States,English,2015-05-08,2015,TV-14,,7,Comedy,Yes,7.8,1,2,63
+78,Atypical,TV Show,,Keir Gilchrist,United States,English,2017-08-11,2017,TV-14,,4,Comedy,Yes,8.0,0,2,69
+79,On My Block,TV Show,,Sierra Capri,United States,English,2018-03-16,2018,TV-14,,4,Comedy,Yes,7.9,0,2,72
+80,13 Reasons Why,TV Show,,Dylan Minnette,United States,English,2017-03-31,2017,TV-MA,,4,Drama,Yes,7.6,0,3,80
+81,To All the Boys Ive Loved Before,Movie,Susan Johnson,Lana Condor,United States,English,2018-08-17,2018,TV-14,99,,Romance,Yes,7.0,0,2,78
+82,The Kissing Booth,Movie,Vince Marcello,Joey King,United States,English,2018-05-11,2018,TV-14,105,,Romance,Yes,6.1,0,2,68
+83,Always Be My Maybe,Movie,Nahnatchka Khan,Ali Wong,United States,English,2019-05-31,2019,PG-13,102,,Comedy,Yes,6.9,0,3,64
+84,Set It Up,Movie,Claire Scanlon,Zoey Deutch,United States,English,2018-06-15,2018,TV-14,105,,Comedy,Yes,6.9,0,2,66
+85,Space Force,TV Show,,Steve Carell,United States,English,2020-05-29,2020,TV-MA,,2,Comedy,Yes,6.7,0,4,60
+86,The Politician,TV Show,,Ben Platt,United States,English,2019-09-27,2019,TV-MA,,2,Comedy,Yes,7.5,0,3,58
+87,Hollywood,TV Show,,David Corenswet,United States,English,2020-05-01,2020,TV-MA,,1,Drama,Yes,7.6,0,4,57
+88,Ratched,TV Show,,Sarah Paulson,United States,English,2020-09-18,2020,TV-MA,,1,Thriller,Yes,7.2,1,4,62
+89,GLOW,TV Show,,Alison Brie,United States,English,2017-06-23,2017,TV-MA,,3,Comedy,Yes,8.0,1,3,65
+90,Chefs Table,TV Show,,,United States,English,2015-04-26,2015,TV-PG,,7,Documentary,Yes,8.5,1,2,63
