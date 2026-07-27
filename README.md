@@ -105,3 +105,5 @@ README.md — this file
 Below are some screenshots of the dashboard and data model
 
 <img width="1027" height="716" alt="Screenshot 2026-07-27 092251" src="https://github.com/user-attachments/assets/5c0a21d8-311c-4bb0-8792-3a1936a32b8f" />
+<img width="1309" height="721" alt="Screenshot 2026-07-27 092208" src="https://github.com/user-attachments/assets/a600f0ed-cd01-4fc8-a989-8bc03fde6331" />
+<img width="1306" height="722" alt="Screenshot 2026-07-27 092233" src="https://github.com/user-attachments/assets/bd82d77d-829e-456c-b69a-0116c3dce9c4" />
