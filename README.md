@@ -1,92 +1,106 @@
-🎬 Netflix SQL Data Analysis Project
+🎬 Streaming Content Analytics — MySQL + Power BI
 
-An end-to-end exploratory data analysis project built in MySQL, using a Netflix-style content dataset. The project covers database setup, data cleaning, aggregate analysis, and advanced SQL (window functions, CTEs).
+An end-to-end data analysis project: raw data cleaned and analyzed in MySQL, modeled into a star/snowflake schema, and visualized in an interactive Power BI dashboard.
+
+Pipeline: Raw CSV → MySQL (cleaning, EDA, window functions, CTEs) → Power Query (dimensional modeling) → DAX measures → Power BI dashboard
 
 📊 Dataset Overview
-
-MetricValueTotal titles90Columns18TV Shows68Movies22Distinct genres13Distinct countries10Distinct cast leads81Date range added2013 – 2022
-
-Columns: show_id, title, type, director, cast_lead, country, language, date_added, release_year, rating, duration_mins, seasons, genre, netflix_original, imdb_score, awards_won, budget_usd_millions, popularity_score
+Metric	Value
+Total titles	90
+TV Shows	68
+Movies	22
+Distinct genres	13
+Distinct countries	10
+Distinct languages	8
+Date range added	2014 – 2022
+Netflix Originals	81% of catalog
 
 🛠️ Tools & Concepts Used
+MySQL / MySQL Workbench — schema setup, cleaning, aggregation, window functions, CTEs
+Power Query — dimensional modeling (fact/dimension split), data type correction, custom columns
+Power BI — DAX measures, relationship modeling, interactive dashboard, slicers
 
+🧹 Data Cleaning (MySQL)
+Step	Action	Reason
+show_id → INT PRIMARY KEY	Enforce unique identifier	Data integrity
+Blank duration_mins → NULL, column cast to INT	TV Shows have no runtime	Keeps column numeric/queryable instead of storing text placeholders
+Blank seasons → NULL, column cast to INT	Movies have no season count	Same reasoning
+Blank director → NULL	Applies mainly to TV Shows	Avoids empty-string artifacts
+Blank cast_lead → NULL	A few titles had no lead cast recorded	Avoids empty-string artifacts
+Duplicate title check	GROUP BY title HAVING COUNT(*) > 1	Confirmed 0 duplicates
+Ranking bug fix	Added DESC to DENSE_RANK() calls	Original queries ranked ascending, incorrectly surfacing lowest-rated titles as "top"
 
-MySQL / MySQL Workbench
-Database & table setup (CREATE DATABASE, RENAME TABLE, ALTER TABLE)
-Data cleaning (UPDATE, NULL handling, type correction)
-Aggregation (GROUP BY, HAVING, COUNT, AVG, ROUND)
-Date functions (YEAR())
-Window functions (DENSE_RANK() OVER, AVG() OVER (PARTITION BY ...))
-CTEs (WITH ... AS)
+🧱 Data Model (Star/Snowflake Schema)
 
+Built in Power Query using Reference + Remove Duplicates + Index to split the flat table into a fact table and supporting dimensions:
 
-🧹 Data Cleaning Log
+fact table:        netflix (measures: imdb_score, budget_usd_millions,
+                    awards_won, popularity_score, duration_mins, date, etc.)
 
-StepActionReason1RENAME TABLE netflix_shows_extended TO netflixSimplify table name for querying2show_id set to INT PRIMARY KEYEnforce a unique identifier per title3Blank duration_mins → NULL, then column cast to INTTV Shows have no runtime — keep the field numeric and nullable instead of storing as text, so AVG()/MAX() still work4Blank seasons → NULL, then column cast to INTMovies have no season count — same reasoning as above5Blank director → NULLApplies mainly to TV Shows, where a single director isn't always listed6Blank cast_lead → NULLA few titles had no lead cast recorded7Duplicate title check (GROUP BY title HAVING COUNT(*) > 1)Confirmed 0 duplicate titles — dataset is clean on this dimension
+dimension tables:  dim_title    (title, director, cast_lead, netflix_original, show_id)
+                   dim_genre    (genre, genre_id)
+                   dim_country  (country, country_id)
+                   dim_lang     (language, lang_id)
+                   dim_dim_type (type, type_id)  -- Movie / TV Show
 
-Why numeric types matter here: an earlier version of this project stored missing duration_mins/seasons as text labels ('TV-Show', 'movie'). That blocked numeric functions like AVG() from running. Converting them to NULL + INT instead keeps the columns fully queryable while still correctly marking "not applicable."
+Deliberately excluded as dimensions: director and cast_lead were kept as attributes inside dim_title rather than split into their own tables — most values appear on only one title, so there's minimal repetition to normalize away, and modeling cast properly would require a many-to-many bridge table, which was out of scope for this project's grain.
 
-📈 Key Insights
+Known issue caught & fixed: an early version of the netflix ↔ dim_title relationship allowed a fan-out that inflated the "titles by year" line chart (showing 30–60 titles/year against a 90-title total). Diagnosed via a COUNTROWS(netflix) sanity-check card and resolved by correcting the relationship cardinality/direction.
 
-1. Content Mix
+📐 Key DAX Measures
+dax
+No of Movies =
+CALCULATE(DISTINCTCOUNT(dim_title[show_id]), dim_dim_type[type] = "Movie")
 
-The library is TV-Show heavy: 68 TV Shows vs. 22 Movies (~76% / 24% split).
+No of TV Shows =
+CALCULATE(DISTINCTCOUNT(dim_title[show_id]), dim_dim_type[type] = "TV Show")
 
-2. Highest-Rated Genres (avg IMDb score)
-
-RankGenreAvg Score1Anime8.402Animation8.273Crime8.164Drama8.155Documentary8.14
-
-Lowest: Mystery (7.15), Romance (7.28), Adventure (7.45) — these also have the fewest titles, so treat as directional, not definitive.
-
-3. Content by Country
-
-United States dominates with 56 of 90 titles (~62%), followed by India (13) and the United Kingdom (6). The remaining titles are spread thinly across Spain, South Korea, Mexico, Germany, Japan, Colombia, and France — a long tail of single-digit representation.
-
-4. Content Growth Over Time
-
-2013: 3    2017: 8    2020: 23
-2014: 1    2018: 13   2021: 7
-2015: 4    2019: 22   2022: 5
-2016: 4
-
-2019–2020 account for 50% of all titles in the dataset — a sharp acceleration matching Netflix's real-world content investment surge in that period.
-
-5. Top-Rated Title Per Genre (corrected DENSE_RANK ... DESC)
-
-GenreTop TitleScoreCrimeBreaking Bad9.5DramaKota Factory9.1ComedyGullak8.9Sci-Fi & FantasyDark8.8AnimationBoJack Horseman8.7DocumentaryMaking a Murderer8.6ThrillerThe Haunting of Hill House8.6ActionSpecial Ops8.5RomanceLittle Things8.5AnimeKaguya-sama: Love Is War8.4FantasyPan's Labyrinth8.2MysteryThe Outsider7.7AdventureOuter Banks7.6
-
-6. Overall Highest-Rated Title
-
-Breaking Bad (9.5) tops the entire catalog. Crime and Sci-Fi & Fantasy each place 3 titles in the catalog-wide top 10 — these genres don't just score well on average, they also produce the most consistent standout titles.
-
-7. Runtime & Season Patterns
-
-
-Average movie duration: 118.1 minutes
-Longest movie: The Irishman (209 min) — nearly 2x the average; RRR (187 min) is second
-Most seasons (tied at 7): Elite, Orange Is the New Black, Grace and Frankie, Chef's Table
-
-
-🔍 Sample Queries
-
-sql-- Corrected: highest-rated title per genre
-SELECT title, genre, imdb_score,
-DENSE_RANK() OVER (PARTITION BY genre ORDER BY imdb_score DESC) AS rnk
-FROM netflix;
-
--- Corrected: highest-rated title across the whole catalog
-SELECT title, genre, imdb_score,
-DENSE_RANK() OVER (ORDER BY imdb_score DESC) AS rnk
-FROM netflix;
-
--- Each title vs. its genre's average score
-SELECT title, genre, imdb_score,
-ROUND(AVG(imdb_score) OVER (PARTITION BY genre), 2) AS avg
-FROM netflix;
-
--- CTE: genre-level summary table
-WITH genre_avg AS (
-    SELECT genre, ROUND(AVG(imdb_score),1) AS avg_score
-    FROM netflix GROUP BY genre
+% Netflix Originals =
+DIVIDE(
+    CALCULATE(COUNTROWS(netflix), dim_title[netflix_original] = "Yes"),
+    COUNTROWS(netflix),
+    0
 )
-SELECT * FROM genre_avg ORDER BY avg_score DESC;
+
+Avg IMDb Score = ROUND(AVERAGE(netflix[imdb_score]), 2)
+
+IMDb Category =
+SWITCH(
+    TRUE(),
+    netflix[imdb_score] >= 8.5, "Excellent",
+    netflix[imdb_score] >= 7.5, "Very Good",
+    netflix[imdb_score] >= 6.5, "Good",
+    netflix[imdb_score] >= 5.5, "Average",
+    "Below Average"
+)
+📈 Dashboard
+
+Layout: left-side filter panel (Type, Genre, Netflix Original, Language) + KPI row + 4 supporting visuals.
+
+Visual	Type	Why this chart
+Titles by Country	Horizontal bar, sorted descending	Independent category comparison — bar/column is the correct chart for this, not funnel or pie (too many categories)
+Titles by Year	Line chart	Genuinely sequential/time-based data
+Content Quality Distribution	Pie chart	Only 4 categories — appropriate range for a pie; given distinct (non-monochrome) colors so slices are distinguishable
+Budget vs. Rating	Scatter (bubble size = popularity)	Reveals relationship between two continuous variables
+
+KPI cards: Total Titles, Average Score, Movies, TV Shows, % Netflix Originals
+
+💡 Key Insights
+Catalog is TV-Show heavy: 68 TV Shows vs. 22 Movies (~76%/24% split).
+US dominance: United States accounts for 56 of 90 titles (~62%), followed by India and the UK.
+Growth peaked in 2019–2020: content additions rose sharply, peaked around 2019–2020, then declined — visible clearly once the model's fan-out bug was fixed.
+81% of the catalog is Netflix Original content, vs. 19% licensed.
+Budget doesn't guarantee rating: the scatter plot shows most titles cluster at low budgets with mid-to-high ratings; a few high-budget outliers (>$100M) don't consistently score higher — spending more doesn't reliably buy a better score in this dataset.
+Genre averages are directional, not definitive: genres like Anime and Animation top the average-score charts but have very few titles each, so they were deliberately left out of headline KPI cards to avoid overstating a small-sample result — a judgment call favoring statistical honesty over a flashier stat.
+🔍 Chart-Type Decisions (and rejected alternatives)
+Funnel chart was considered and rejected for both "titles by country" and "budget by genre" — funnel charts imply a sequential, narrowing process (like a sales pipeline), which doesn't exist in either of these independent-category comparisons. Bar/column charts were used instead.
+Pie chart limited to categories with ≤5 values (IMDb Category) — genre/country were deliberately kept as bar charts since a pie chart with 10–13 slices becomes unreadable.
+
+📁 Files
+netflix.sql — full MySQL script (setup → cleaning → EDA → window functions → CTEs)
+netflix_shows_extended.csv — source dataset
+netflix_dashboard.pbix — Power BI dashboard file
+README.md — this file
+
+Below are some screenshots of the dashboard and data model
+
